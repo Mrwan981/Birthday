@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>كل سنة وإنتي طيبة يا نونتي ❤️</title>
+
+  <!-- استدعاء خطوط عربية فخمة من Google Fonts (Cairo للعناوين و Amiri للرسالة الرومانسية) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- مكتبة Tailwind CSS للتنسيق المتجاوب على الموبايل والكمبيوتر -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            cairo: ['Cairo', 'sans-serif'],
+            amiri: ['Amiri', 'serif'],
+          },
+          colors: {
+            wine: '#2b0918',
+            burgundy: '#59112e',
+            roseGlow: '#ff4d79',
+            blush: '#ff8fa3',
+            softCream: '#fff0f3',
+            warmGold: '#ffd166',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ==========================================================================
+       التنسيقات العامة والخلفيات الرومانسية
+       ========================================================================== */
+    :root {
+      --bg-deep: #2b0918;
+      --bg-mid: #59112e;
+      --accent-pink: #ff4d79;
+      --accent-soft: #ff8fa3;
+      --cream: #fff0f3;
+      --gold: #ffd166;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: radial-gradient(circle at 20% 20%, #6b1438 0%, #3d0c22 45%, #220612 100%);
+      color: var(--cream);
+      min-height: 100vh;
+      overflow-x: hidden;
+      margin: 0;
+      position: relative;
+    }
+
+    /* نقشة قلوب ناعمة في الخلفية */
+    .heart-pattern-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.08;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 46.5C30 46.5 12 34.8 12 22.5C12 16.7 16.7 12 22.5 12C25.8 12 28.8 13.6 30 16.1C31.2 13.6 34.2 12 37.5 12C43.3 12 48 16.7 48 22.5C48 34.8 30 46.5 30 46.5Z' fill='%23ff8fa3'/%3E%3C/svg%3E");
+      background-size: 64px 64px;
+    }
+
+    /* دوائر إضاءة رومانسية دافئة (Bokeh) */
+    .bokeh-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+      z-index: 0;
+      animation: floatOrb 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, -40px) scale(1.15); }
+    }
+
+    /* حاوية القلوب الطائرة في الخلفية */
+    #floating-hearts-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .bg-heart {
+      position: absolute;
+      bottom: -60px;
+      animation: riseHeart linear forwards;
+      will-change: transform, opacity;
+    }
+
+    @keyframes riseHeart {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(0.7);
+        opacity: 0;
+      }
+      15% {
+        opacity: var(--heart-opacity, 0.55);
+      }
+      50% {
+        transform: translateY(-55vh) translateX(var(--sway, 25px)) rotate(12deg) scale(1);
+      }
+      85% {
+        opacity: var(--heart-opacity, 0.55);
+      }
+      100% {
+        transform: translateY(-115vh) translateX(calc(var(--sway, 25px) * -0.8)) rotate(-15deg) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    /* قلوب تفاعلية تظهر عند اللمس أو الضغط على زر رمي القلوب */
+    .tap-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: popAndFloat 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes popAndFloat {
+      0% {
+        transform: translate(-50%, -50%) scale(0.2) rotate(0deg);
+        opacity: 1;
+      }
+      60% {
+        opacity: 0.95;
+      }
+      100% {
+        transform: translate(calc(-50% + var(--dx)), calc(-50% - 105px)) scale(1.25) rotate(var(--rot));
+        opacity: 0;
+      }
+    }
+
+    /* تأثير الزجاج الرومانسي (Glassmorphism) */
+    .glass-card {
+      background: rgba(54, 12, 31, 0.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 143, 163, 0.3);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    /* نبض القلب */
+    @keyframes heartPulse {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.18); }
+      30% { transform: scale(1.04); }
+      45% { transform: scale(1.14); }
+    }
+
+    .animate-heartbeat {
+      animation: heartPulse 1.8s infinite ease-in-out;
+    }
+
+    /* اهتزاز الكارت عند كتابة باسورد غلط */
+    @keyframes shakeError {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-12px); }
+      40% { transform: translateX(12px); }
+      60% { transform: translateX(-8px); }
+      80% { transform: translateX(8px); }
+    }
+
+    .shake-card {
+      animation: shakeError 0.48s ease-in-out;
+      border-color: #ff4d79 !important;
+      box-shadow: 0 0 30px rgba(255, 77, 121, 0.45);
+    }
+
+    /* توهج النصوص الذهبية والوردية */
+    .glow-text {
+      text-shadow: 0 4px 24px rgba(255, 77, 121, 0.55), 0 0 45px rgba(255, 209, 102, 0.25);
+    }
+
+    /* تنسيق إطارات الصور (Polaroid Style) */
+    .polaroid-frame {
+      background: linear-gradient(180deg, #ffffff 0%, #fff5f7 100%);
+      padding: 14px 14px 22px 14px;
+      border-radius: 18px;
+      box-shadow: 0 18px 38px rgba(18, 3, 10, 0.55), 0 0 0 1px rgba(255, 209, 102, 0.35);
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .polaroid-tilt-1 { transform: rotate(-2.5deg); }
+    .polaroid-tilt-2 { transform: rotate(2.2deg); }
+    .polaroid-tilt-3 { transform: rotate(1.8deg); }
+    .polaroid-tilt-4 { transform: rotate(-2.2deg); }
+
+    .polaroid-frame:hover {
+      transform: rotate(0deg) translateY(-10px) scale(1.03);
+      box-shadow: 0 28px 55px rgba(255, 77, 121, 0.35), 0 0 0 2px #ffd166;
+      z-index: 15;
+    }
+
+    .polaroid-frame:hover .photo-zoom {
+      transform: scale(1.07);
+    }
+
+    .photo-zoom {
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* تنسيق ورقة الرسالة الرومانسية */
+    .love-letter-paper {
+      background: linear-gradient(145deg, #fff8fa 0%, #ffeef2 55%, #ffe3ea 100%);
+      color: #3b0d20;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 0 2px rgba(255, 209, 102, 0.55);
+      position: relative;
+    }
+
+    .love-letter-paper::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1.5px dashed rgba(255, 77, 121, 0.32);
+      border-radius: 20px;
+      pointer-events: none;
+    }
+
+    /* أنيميشن شعلة الشمعة */
+    @keyframes flickerFlame {
+      0%, 100% {
+        transform: translateX(-50%) scale(1) rotate(-2deg);
+        filter: drop-shadow(0 0 14px #ffd166) drop-shadow(0 0 28px #ff4d79);
+      }
+      33% {
+        transform: translateX(-50%) scale(1.08, 0.94) rotate(2deg);
+        filter: drop-shadow(0 0 18px #ffd166) drop-shadow(0 0 34px #ff8fa3);
+      }
+      66% {
+        transform: translateX(-50%) scale(0.95, 1.06) rotate(-1deg);
+        filter: drop-shadow(0 0 12px #ffd166) drop-shadow(0 0 25px #ff4d79);
+      }
+    }
+
+    .candle-flame {
+      transform-origin: bottom center;
+      animation: flickerFlame 0.9s infinite ease-in-out;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .candle-flame.extinguished {
+      opacity: 0;
+      transform: translateX(-50%) scale(0) !important;
+      animation: none;
+    }
+
+    /* دخان الشمعة بعد الإطفاء */
+    @keyframes smokeRise {
+      0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+      }
+      30% {
+        opacity: 0.75;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-55px) translateX(14px) scale(1.8);
+      }
+    }
+
+    .smoke-puff {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .smoke-puff.active {
+      animation: smokeRise 1.8s ease-out forwards;
+    }
+
+    /* شريط التمرير */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #220612;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #ff4d79, #801843);
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body class="selection:bg-roseGlow selection:text-white">
+
+  <!-- ========================================================================
+       عنصر الصوت الخاص بالأغنية (ضع ملف song.mp3 في نفس الفولدر مع index.html)
+       ======================================================================== -->
+  <audio id="bgMusic" src="song.mp3" preload="auto" loop></audio>
+
+  <!-- إشعار لطيف (Toast) يظهر فقط إذا لم يكن ملف song.mp3 موجوداً أثناء المعاينة -->
+  <div
+    id="toast-notification"
+    role="status"
+    aria-live="polite"
+    class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-[92%] max-w-md pointer-events-none opacity-0 -translate-y-4 transition-all duration-300"
+  >
+    <div class="glass-card rounded-2xl px-4 py-3.5 border border-warmGold/50 shadow-2xl flex items-start gap-3 text-right pointer-events-auto">
+      <span class="text-xl shrink-0 mt-0.5">🎵</span>
+      <p id="toast-message" class="text-xs sm:text-sm text-softCream font-semibold leading-relaxed flex-1"></p>
+      <button
+        type="button"
+        id="toast-close-btn"
+        aria-label="إغلاق الإشعار"
+        class="text-blush hover:text-white text-sm font-bold px-1.5 py-0.5 rounded-lg cursor-pointer"
+      >
+        ✕
+      </button>
+    </div>
+  </div>
+
+  <!-- خلفيات الإضاءة والقلوب المتحركة -->
+  <div class="bokeh-orb w-80 h-80 bg-roseGlow/25 top-10 -right-16"></div>
+  <div class="bokeh-orb w-96 h-96 bg-warmGold/15 bottom-16 -left-20" style="animation-delay: -5s;"></div>
+  <div class="bokeh-orb w-72 h-72 bg-blush/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="animation-delay: -8s;"></div>
+  <div class="heart-pattern-overlay"></div>
+  <div id="floating-hearts-container" aria-hidden="true"></div>
+
+  <!-- ========================================================================
+       القسم الأول: بوابة الدخول بالباسورد السري (Password Login Screen)
+       ======================================================================== -->
+  <section id="login-gate" class="fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-700">
+    <div id="login-card" class="glass-card w-full max-w-md rounded-3xl p-7 sm:p-9 text-center relative overflow-hidden">
+      <!-- شريط علوي ذهبي -->
+      <div class="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-roseGlow via-warmGold to-roseGlow"></div>
+
+      <!-- أيقونة قلب وقفل متوهجة -->
+      <div class="mx-auto mb-5 w-24 h-24 rounded-full bg-gradient-to-br from-roseGlow/30 to-burgundy/80 border border-blush/40 flex items-center justify-center shadow-lg shadow-roseGlow/30 animate-heartbeat">
+        <svg class="w-12 h-12 text-roseGlow drop-shadow-[0_0_12px_rgba(255,77,121,0.8)]" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 56C32 56 8 40.5 8 23.5C8 15.5 14.3 9 22 9C26.5 9 30.5 11.2 32 14.6C33.5 11.2 37.5 9 42 9C49.7 9 56 15.5 56 23.5C56 40.5 32 56 32 56Z" fill="url(#heartLockGrad)"/>
+          <rect x="25" y="27" width="14" height="12" rx="3" fill="#fff0f3"/>
+          <path d="M28 27V23C28 20.8 29.8 19 32 19C34.2 19 36 20.8 36 23V27" stroke="#fff0f3" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="32" cy="32.5" r="1.7" fill="#59112e"/>
+          <defs>
+            <linearGradient id="heartLockGrad" x1="8" y1="9" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#ff8fa3"/>
+              <stop offset="0.5" stop-color="#ff4d79"/>
+              <stop offset="1" stop-color="#b5174c"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white mb-2 glow-text">
+        مكان معمول مخصوص عشانك يا نونتي ❤️
+      </h1>
+      <p class="text-blush/90 text-sm sm:text-base mb-6 leading-relaxed">
+        اكتبي الباسورد السري عشان تفتحي المفاجأة
+      </p>
+
+      <!-- نموذج إدخال الباسورد -->
+      <form id="login-form" class="space-y-4" novalidate>
+        <div class="relative">
+          <input
+            type="password"
+            id="password-input"
+            autocomplete="off"
+            placeholder="اكتبي الباسورد هنا..."
+            class="w-full rounded-2xl bg-wine/80 border border-blush/35 focus:border-warmGold focus:ring-2 focus:ring-warmGold/30 text-white placeholder-blush/50 text-center text-lg font-bold tracking-widest py-3.5 px-12 outline-none transition-all"
+          />
+          <!-- زر إظهار / إخفاء الباسورد -->
+          <button
+            type="button"
+            id="toggle-password-btn"
+            aria-label="إظهار أو إخفاء الباسورد"
+            class="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-blush/80 hover:text-warmGold transition-colors rounded-xl cursor-pointer"
+          >
+            <svg id="eye-open-icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            <svg id="eye-closed-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- تلميح الباسورد -->
+        <p class="text-xs sm:text-sm text-warmGold/95 font-bold">
+          تاريخ بداية أجمل حكاية في حياتي ✨
+        </p>
+
+        <!-- رسالة الخطأ عند إدخال باسورد غير صحيح -->
+        <p id="error-message" class="text-sm font-bold text-warmGold bg-roseGlow/20 border border-roseGlow/40 rounded-xl py-2.5 px-3 hidden">
+          الباسورد غلط يا روح قلبي، جربي تاني ❤️
+        </p>
+
+        <button
+          type="submit"
+          class="w-full py-3.5 px-6 rounded-2xl font-extrabold text-lg text-white bg-gradient-to-r from-roseGlow via-[#ff2a6d] to-roseGlow hover:brightness-110 active:scale-[0.98] shadow-lg shadow-roseGlow/40 transition-all flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span>افتحي المفاجأة ✨</span>
+        </button>
+      </form>
+
+      <div class="mt-6 flex items-center justify-center gap-2 text-xs text-blush/60">
+        <span>صُنع بكل حب علشانك</span>
+        <span>💕</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       القسم الثاني: صفحة الاحتفال الرئيسية (تظهر بعد إدخال الباسورد الصحيح)
+       ======================================================================== -->
+  <main id="celebration-content" class="relative z-10 hidden opacity-0 transition-opacity duration-1000 pb-32">
+
+    <!-- 1. قسم الترحيب الرئيسي (Romantic Header) -->
+    <section class="max-w-4xl mx-auto px-4 pt-9 sm:pt-14 pb-8 text-center">
+      <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-roseGlow/30 via-warmGold/25 to-roseGlow/30 border border-warmGold/50 text-warmGold font-bold text-sm sm:text-base mb-6 shadow-md animate-bounce">
+        <span>يوم ميلاد أجمل إنسانة في الدنيا 🎂✨</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight mb-5 glow-text">
+        كل سنة وإنتي طيبة يا نونتي ❤️
+      </h1>
+
+      <p class="max-w-2xl mx-auto text-base sm:text-xl text-blush leading-relaxed font-semibold">
+        النهاردة مش يوم عادي.. النهاردة اليوم اللي نورتي فيه الدنيا وبقيتي أجمل حاجة حصلت في حياتي كلها 💖
+      </p>
+
+      <!-- فاصل قلوب زخرفي -->
+      <div class="mt-8 flex items-center justify-center gap-3 text-roseGlow">
+        <span class="h-px w-16 bg-gradient-to-r from-transparent to-blush/50"></span>
+        <span class="text-xl animate-heartbeat">❤️</span>
+        <span class="text-sm text-warmGold">✨</span>
+        <span class="text-xl animate-heartbeat" style="animation-delay: 0.4s;">❤️</span>
+        <span class="h-px w-16 bg-gradient-to-l from-transparent to-blush/50"></span>
+      </div>
+    </section>
+
+    <!-- 2. عدّاد حكايتنا المباشر منذ 6 ديسمبر 2025 (Live Relationship Timer) -->
+    <section class="max-w-3xl mx-auto px-4 pb-12">
+      <div class="glass-card rounded-3xl p-6 sm:p-8 text-center relative overflow-hidden">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-roseGlow/20 border border-blush/35 text-warmGold text-xs sm:text-sm font-bold mb-3">
+          <span>♾️ عدّاد حبنا المباشر ♾️</span>
+        </div>
+        <h2 class="text-lg sm:text-2xl font-extrabold text-white mb-6 glow-text leading-relaxed">
+          حكايتنا بدأت من يوم 6 ديسمبر 2025 ومكملة العمر كله
+        </h2>
+
+        <div class="grid grid-cols-4 gap-2.5 sm:gap-4 max-w-xl mx-auto">
+          <div class="rounded-2xl bg-wine/80 border border-blush/25 p-3 sm:p-4 shadow-inner">
+            <div id="counter-days" class="text-2xl sm:text-4xl font-black text-warmGold">0</div>
+            <div class="text-xs sm:text-sm text-blush font-bold mt-1">يوم</div>
+          </div>
+          <div class="rounded-2xl bg-wine/80 border border-blush/25 p-3 sm:p-4 shadow-inner">
+            <div id="counter-hours" class="text-2xl sm:text-4xl font-black text-white">00</div>
+            <div class="text-xs sm:text-sm text-blush font-bold mt-1">ساعة</div>
+          </div>
+          <div class="rounded-2xl bg-wine/80 border border-blush/25 p-3 sm:p-4 shadow-inner">
+            <div id="counter-minutes" class="text-2xl sm:text-4xl font-black text-white">00</div>
+            <div class="text-xs sm:text-sm text-blush font-bold mt-1">دقيقة</div>
+          </div>
+          <div class="rounded-2xl bg-wine/80 border border-blush/25 p-3 sm:p-4 shadow-inner">
+            <div id="counter-seconds" class="text-2xl sm:text-4xl font-black text-roseGlow">00</div>
+            <div class="text-xs sm:text-sm text-blush font-bold mt-1">ثانية</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. معرض الصور والذكريات (Polaroid Photo Gallery) -->
+    <!-- ======================================================================
+         الموقع يقرأ تلقائياً الصور الموجودة في نفس الفولدر بأسماء:
+         photo1.jpg , photo2.jpg , photo3.jpg , photo4.jpg
+         ====================================================================== -->
+    <section class="max-w-5xl mx-auto px-4 py-8">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-2 glow-text">
+          أجمل ذكرياتنا وصورك ❤️
+        </h2>
+        <p class="text-blush/85 text-sm sm:text-base">
+          كل صورة ليكي بتحكي حكاية جمال ما بتنتهيش ✨
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-6">
+        <!-- ==================== إطار الصورة الأولى (photo1.jpg) ==================== -->
+        <div class="polaroid-frame polaroid-tilt-1 group" onclick="triggerPhotoUpload(1)">
+          <div class="absolute -top-3 -right-2 z-20 text-2xl drop-shadow">💖</div>
+          <div class="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-rose-100">
+            <img
+              id="photo-img-1"
+              src="photo1.jpg"
+              alt="أجمل ضحكة في الدنيا"
+              onerror="handleImageError(this, 1)"
+              class="w-full h-full object-cover photo-zoom"
+            />
+            <div id="photo-fallback-1" class="hidden w-full h-full"></div>
+            <span class="absolute bottom-2 left-2 bg-wine/85 text-white text-[11px] px-2.5 py-1 rounded-full opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+              📷 اضغطي لاختيار صورة
+            </span>
+          </div>
+          <input type="file" id="photo-input-1" accept="image/*" class="hidden" onchange="previewSelectedPhoto(event, 1)" />
+          <p class="mt-3 text-center font-bold text-wine text-base">
+            أجمل ضحكة في الدنيا 😍
+          </p>
+        </div>
+
+        <!-- ==================== إطار الصورة الثانية (photo2.jpg) ==================== -->
+        <div class="polaroid-frame polaroid-tilt-2 group" onclick="triggerPhotoUpload(2)">
+          <div class="absolute -top-3 -left-2 z-20 text-2xl drop-shadow">✨</div>
+          <div class="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-rose-100">
+            <img
+              id="photo-img-2"
+              src="photo2.jpg"
+              alt="أحلى ذكرياتنا سوا"
+              onerror="handleImageError(this, 2)"
+              class="w-full h-full object-cover photo-zoom"
+            />
+            <div id="photo-fallback-2" class="hidden w-full h-full"></div>
+            <span class="absolute bottom-2 left-2 bg-wine/85 text-white text-[11px] px-2.5 py-1 rounded-full opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+              📷 اضغطي لاختيار صورة
+            </span>
+          </div>
+          <input type="file" id="photo-input-2" accept="image/*" class="hidden" onchange="previewSelectedPhoto(event, 2)" />
+          <p class="mt-3 text-center font-bold text-wine text-base">
+            أحلى ذكرياتنا سوا 🥰
+          </p>
+        </div>
+
+        <!-- ==================== إطار الصورة الثالثة (photo3.jpg) ==================== -->
+        <div class="polaroid-frame polaroid-tilt-3 group" onclick="triggerPhotoUpload(3)">
+          <div class="absolute -top-3 -right-2 z-20 text-2xl drop-shadow">🌹</div>
+          <div class="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-rose-100">
+            <img
+              id="photo-img-3"
+              src="photo3.jpg"
+              alt="قمر منور حياتي"
+              onerror="handleImageError(this, 3)"
+              class="w-full h-full object-cover photo-zoom"
+            />
+            <div id="photo-fallback-3" class="hidden w-full h-full"></div>
+            <span class="absolute bottom-2 left-2 bg-wine/85 text-white text-[11px] px-2.5 py-1 rounded-full opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+              📷 اضغطي لاختيار صورة
+            </span>
+          </div>
+          <input type="file" id="photo-input-3" accept="image/*" class="hidden" onchange="previewSelectedPhoto(event, 3)" />
+          <p class="mt-3 text-center font-bold text-wine text-base">
+            قمر منور حياتي 🌙❤️
+          </p>
+        </div>
+
+        <!-- ==================== إطار الصورة الرابعة (photo4.jpg) ==================== -->
+        <div class="polaroid-frame polaroid-tilt-4 group" onclick="triggerPhotoUpload(4)">
+          <div class="absolute -top-3 -left-2 z-20 text-2xl drop-shadow">👑</div>
+          <div class="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-rose-100">
+            <img
+              id="photo-img-4"
+              src="photo4.jpg"
+              alt="ملكة قلبي للأبد"
+              onerror="handleImageError(this, 4)"
+              class="w-full h-full object-cover photo-zoom"
+            />
+            <div id="photo-fallback-4" class="hidden w-full h-full"></div>
+            <span class="absolute bottom-2 left-2 bg-wine/85 text-white text-[11px] px-2.5 py-1 rounded-full opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+              📷 اضغطي لاختيار صورة
+            </span>
+          </div>
+          <input type="file" id="photo-input-4" accept="image/*" class="hidden" onchange="previewSelectedPhoto(event, 4)" />
+          <p class="mt-3 text-center font-bold text-wine text-base">
+            ملكة قلبي للأبد 💕
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. رسالة عيد الميلاد الرومانسية (Heartfelt Love Letter) -->
+    <section class="max-w-3xl mx-auto px-4 py-12">
+      <div class="love-letter-paper rounded-3xl p-7 sm:p-12">
+        <!-- قلوب زخرفية في أركان الرسالة -->
+        <span class="absolute top-4 right-5 text-2xl text-roseGlow">❤️</span>
+        <span class="absolute top-4 left-5 text-2xl text-roseGlow">❤️</span>
+        <span class="absolute bottom-4 right-5 text-xl text-roseGlow/70">✨</span>
+        <span class="absolute bottom-4 left-5 text-xl text-roseGlow/70">✨</span>
+
+        <div class="text-center mb-6">
+          <span class="inline-block px-4 py-1 rounded-full bg-roseGlow/15 text-burgundy font-bold text-xs sm:text-sm mb-2">
+            كلام من القلب ✨
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-burgundy">
+            رسالة من قلبي ليكي 💌
+          </h2>
+        </div>
+
+        <!-- عدّل الرسالة من هنا -->
+        <div class="font-amiri text-xl sm:text-2xl leading-[2.1] text-[#3d0c22] space-y-4 text-right">
+          <p>
+            نونتييييي كل سنة و انتي طيبه يا حياتي😍😍🫂احلي نونة تكمل 17 سنة يناس🫂🫂❤️حبيبتي و عمري و حياتي كلها مقدرش اعيش من غيرك ❤️🫂🫂 عيد ميلاد نونتي ده بقي حاجة تانية لي بقي عشان احنا مع بعض السنة ديه و السنين الجاية أن شاءالله 🫂🫂❤️عارفة يا نونتي امبارح انا مكنتش فرحان عشان عيد ميلادي بس لا فرحان عشان عيد ميلادي بقي لي طعم كده بقي في واحدة مالية حياتي كده زي ما انا مالي حياتها كده النهاردة و باقي الايام🫂🫂😍❤️ ايام و شهور و سنة عدينها مع بعض مشاكلنا و حبنا و و اسفززنا لبعض و خوفنا علي بعض و حاجات كتير اوي بس بجد احنا اتولدنا من 11 شهر باقي السنين ملهاش لازمة خلاص هي الايام الي عشناها مع بعض هي ديه حياتنا من اول يوم لحد دلوقتي 🫂🫂❤️احلي واحدة تكبر علي ايدي يناس 🫂❤️😍 و في الاخر 17 سنة أنوثة و جدعنة يا احلي نونة
+          </p>
+        </div>
+        <!-- نهاية الرسالة -->
+
+        <div class="mt-8 pt-5 border-t border-roseGlow/20 flex items-center justify-between text-burgundy font-bold text-sm sm:text-base">
+          <span>حبيبك للأبد ❤️</span>
+          <span class="text-roseGlow">6 ديسمبر 2025 &amp; إلى ما لا نهاية ♾️</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. التورتة التفاعلية وإطفاء الشمعة (Interactive Birthday Finale) -->
+    <section class="max-w-2xl mx-auto px-4 pt-6 pb-8 text-center">
+      <div class="glass-card rounded-3xl p-7 sm:p-10 relative overflow-hidden">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-2 glow-text">
+          اتمني أمنية واطفي الشمعة 🕯️
+        </h2>
+        <p class="text-blush/90 text-sm sm:text-base mb-8">
+          غمّضي عينك، اتمني أحلى أمنية، واضغطي على الزرار عشان تطفي الشمعة!
+        </p>
+
+        <!-- رسمة تورتة عيد الميلاد التفاعلية (SVG) -->
+        <div class="relative mx-auto w-64 h-64 flex items-center justify-center mb-6 select-none">
+          <!-- الدخان عند إطفاء الشمعة -->
+          <div id="smoke-1" class="smoke-puff absolute top-6 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-white/60 blur-sm"></div>
+          <div id="smoke-2" class="smoke-puff absolute top-5 left-[48%] w-4 h-4 rounded-full bg-blush/70 blur-sm" style="animation-delay: 0.25s;"></div>
+
+          <svg viewBox="0 0 260 260" class="w-full h-full drop-shadow-[0_18px_28px_rgba(0,0,0,0.45)]">
+            <!-- طبق التورتة الذهبي -->
+            <ellipse cx="130" cy="226" rx="108" ry="16" fill="#ffd166" />
+            <ellipse cx="130" cy="222" rx="98" ry="12" fill="#ffe8a3" />
+
+            <!-- الطبقة السفلية للتورتة -->
+            <rect x="46" y="162" width="168" height="58" rx="16" fill="#ff4d79" />
+            <path d="M46 176 Q67 192 88 176 T130 176 T172 176 T214 176 L214 168 Q214 162 200 162 L60 162 Q46 162 46 168 Z" fill="#fff0f3" />
+            <circle cx="80" cy="198" r="4" fill="#ffd166" />
+            <circle cx="130" cy="200" r="4" fill="#ffd166" />
+            <circle cx="180" cy="198" r="4" fill="#ffd166" />
+
+            <!-- الطبقة العلوية للتورتة -->
+            <rect x="68" y="112" width="124" height="52" rx="14" fill="#ff8fa3" />
+            <path d="M68 124 Q84 138 100 124 T132 124 T164 124 T192 124 L192 118 Q192 112 180 112 L80 112 Q68 112 68 118 Z" fill="#ffffff" />
+
+            <!-- الشمعة -->
+            <rect x="123" y="64" width="14" height="48" rx="5" fill="#fff0f3" />
+            <path d="M123 74 L137 82 M123 88 L137 96 M123 102 L137 108" stroke="#ff4d79" stroke-width="3.5" stroke-linecap="round" />
+            <!-- فتيل الشمعة -->
+            <line x1="130" y1="56" x2="130" y2="64" stroke="#3b0d20" stroke-width="2.5" stroke-linecap="round" />
+
+            <!-- شعلة الشمعة المتحركة -->
+            <g id="candle-flame-group" class="candle-flame" style="transform-origin: 130px 56px; transform: translateX(0);">
+              <path d="M130 22 C141 37 142 50 130 56 C118 50 119 37 130 22 Z" fill="#ff9f1c" />
+              <path d="M130 30 C136 40 137 49 130 54 C123 49 124 40 130 30 Z" fill="#ffd166" />
+              <ellipse cx="130" cy="47" rx="3" ry="5" fill="#ffffff" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- زر إطفاء الشمعة -->
+        <button
+          id="blow-candle-btn"
+          type="button"
+          class="py-3.5 px-7 rounded-2xl font-extrabold text-base sm:text-lg text-wine bg-gradient-to-r from-warmGold via-[#ffe299] to-warmGold hover:brightness-105 active:scale-95 shadow-lg shadow-warmGold/30 transition-all cursor-pointer"
+        >
+          اتمني أمنية واطفي الشمعة 🕯️
+        </button>
+
+        <!-- الرسالة الختامية التي تظهر بعد إطفاء الشمعة -->
+        <div id="wish-revealed-box" class="hidden mt-7 pt-6 border-t border-blush/25 transition-all duration-700">
+          <p class="text-2xl sm:text-3xl font-black text-warmGold glow-text mb-3 animate-heartbeat">
+            أمنيتك اتحققت بوجودك في قلبي يا نونتي ❤️
+          </p>
+          <p class="text-softCream/90 text-sm sm:text-base mb-4">
+            يارب كل أمنياتك تتحقق السنة دي ونفضل سوا طول العمر 🥂💖
+          </p>
+          <button
+            id="relight-candle-btn"
+            type="button"
+            class="text-xs text-blush hover:text-warmGold underline underline-offset-4 cursor-pointer"
+          >
+            ولّعي الشمعة تاني 🕯️
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       شريط التحكم العائم (Floating Action Controls Bar)
+       يظهر بعد فتح الصفحة ويبقى متاحاً دائماً لتشغيل الأغنية أو رمي القلوب
+       ======================================================================== -->
+  <div
+    id="floating-controls-bar"
+    class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-md"
+  >
+    <div class="glass-card rounded-full p-2 border border-warmGold/45 shadow-[0_12px_35px_rgba(0,0,0,0.6)] flex items-center justify-between gap-2">
+      <!-- زر تشغيل / إيقاف الأغنية -->
+      <button
+        id="music-toggle-btn"
+        type="button"
+        class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-wine/85 hover:bg-burgundy border border-blush/35 text-xs sm:text-sm font-extrabold text-white transition-all active:scale-95 cursor-pointer"
+      >
+        <span id="music-label">تشغيل الأغنية 🎵</span>
+      </button>
+
+      <!-- زر رمي قلوب -->
+      <button
+        id="heart-shower-btn"
+        type="button"
+        class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-gradient-to-r from-roseGlow to-[#ff2a6d] hover:brightness-110 text-xs sm:text-sm font-extrabold text-white shadow-md shadow-roseGlow/40 transition-all active:scale-95 cursor-pointer"
+      >
+        <span>رمي قلوب ❤️</span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // الباسورد السري لفتح الصفحة
+    const SECRET_PASSWORD = "6122025";
+
+    // =========================================================================
+    // 1. نظام الإشعارات اللطيفة (Toast Notification) بدون alert()
+    // =========================================================================
+    const toastEl = document.getElementById('toast-notification');
+    const toastMsgEl = document.getElementById('toast-message');
+    const toastCloseBtn = document.getElementById('toast-close-btn');
+    let toastTimeout = null;
+
+    function showFriendlyToast(message) {
+      if (!toastEl || !toastMsgEl) return;
+      toastMsgEl.textContent = message;
+      toastEl.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+      toastEl.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        hideFriendlyToast();
+      }, 6500);
+    }
+
+    function hideFriendlyToast() {
+      if (!toastEl) return;
+      toastEl.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
+      toastEl.classList.remove('opacity-100', 'translate-y-0');
+    }
+
+    if (toastCloseBtn) {
+      toastCloseBtn.addEventListener('click', hideFriendlyToast);
+    }
+
+    // =========================================================================
+    // 2. نظام القلوب المتحركة في الخلفية والقلوب التفاعلية عند اللمس
+    // =========================================================================
+    const heartsContainer = document.getElementById('floating-hearts-container');
+    const heartColors = ['#ff4d79', '#ff8fa3', '#ffd166', '#ff2a6d', '#ffb3c1'];
+
+    function createFloatingHeart() {
+      if (!heartsContainer) return;
+      const heart = document.createElement('div');
+      heart.className = 'bg-heart';
+
+      const size = Math.floor(Math.random() * 22) + 14;
+      const leftPos = Math.random() * 100;
+      const duration = Math.random() * 7 + 8;
+      const sway = (Math.random() - 0.5) * 90;
+      const opacity = (Math.random() * 0.4 + 0.25).toFixed(2);
+      const color = heartColors[Math.floor(Math.random() * heartColors.length)];
+
+      heart.style.left = `${leftPos}vw`;
+      heart.style.width = `${size}px`;
+      heart.style.height = `${size}px`;
+      heart.style.animationDuration = `${duration}s`;
+      heart.style.setProperty('--sway', `${sway}px`);
+      heart.style.setProperty('--heart-opacity', opacity);
+
+      heart.innerHTML = `
+        <svg viewBox="0 0 32 32" fill="${color}" width="100%" height="100%">
+          <path d="M16 28.5C16 28.5 3 19.8 3 11.2C3 6.8 6.5 3.5 10.8 3.5C13.3 3.5 15.5 4.8 16 6.8C16.5 4.8 18.7 3.5 21.2 3.5C25.5 3.5 29 6.8 29 11.2C29 19.8 16 28.5 16 28.5Z"/>
+        </svg>
+      `;
+
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), duration * 1000);
+    }
+
+    // توليد قلوب مستمرة في الخلفية
+    for (let i = 0; i < 14; i++) {
+      setTimeout(createFloatingHeart, i * 350);
+    }
+    setInterval(createFloatingHeart, 750);
+
+    // توليد قلوب صغيرة في مكان الضغط بالشاشة
+    function spawnTapBurst(x, y, count = 6) {
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('div');
+        el.className = 'tap-heart';
+        const size = Math.floor(Math.random() * 14) + 12;
+        const dx = (Math.random() - 0.5) * 120;
+        const rot = (Math.random() - 0.5) * 65;
+        const color = heartColors[Math.floor(Math.random() * heartColors.length)];
+
+        el.style.left = `${x}px`;
+        el.style.top = `${y}px`;
+        el.style.width = `${size}px`;
+        el.style.height = `${size}px`;
+        el.style.setProperty('--dx', `${dx}px`);
+        el.style.setProperty('--rot', `${rot}deg`);
+
+        el.innerHTML = `
+          <svg viewBox="0 0 32 32" fill="${color}" width="100%" height="100%">
+            <path d="M16 28.5C16 28.5 3 19.8 3 11.2C3 6.8 6.5 3.5 10.8 3.5C13.3 3.5 15.5 4.8 16 6.8C16.5 4.8 18.7 3.5 21.2 3.5C25.5 3.5 29 6.8 29 11.2C29 19.8 16 28.5 16 28.5Z"/>
+          </svg>
+        `;
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 1300);
+      }
+    }
+
+    document.addEventListener('pointerdown', (e) => {
+      if (e.target.closest('button') || e.target.closest('input')) return;
+      spawnTapBurst(e.clientX, e.clientY, 5);
+    });
+
+    // احتفالية قلوب طائرة تغطي الشاشة
+    function launchCelebrationBurst() {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      for (let i = 0; i < 18; i++) {
+        setTimeout(() => {
+          const rx = Math.random() * w;
+          const ry = Math.random() * (h * 0.75) + h * 0.15;
+          spawnTapBurst(rx, ry, 6);
+        }, i * 75);
+      }
+      for (let j = 0; j < 12; j++) {
+        setTimeout(createFloatingHeart, j * 90);
+      }
+    }
+
+    document.getElementById('heart-shower-btn').addEventListener('click', () => {
+      launchCelebrationBurst();
+    });
+
+    // =========================================================================
+    // 3. عدّاد حكايتنا المباشر منذ 6 ديسمبر 2025 (Live Relationship Timer)
+    // =========================================================================
+    const storyStartDate = new Date('2025-12-06T00:00:00');
+
+    function updateStoryCounter() {
+      const now = new Date();
+      const diffMs = Math.max(0, now - storyStartDate);
+
+      const totalSeconds = Math.floor(diffMs / 1000);
+      const days = Math.floor(totalSeconds / (3600 * 24));
+      const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      const daysEl = document.getElementById('counter-days');
+      const hoursEl = document.getElementById('counter-hours');
+      const minutesEl = document.getElementById('counter-minutes');
+      const secondsEl = document.getElementById('counter-seconds');
+
+      if (daysEl) daysEl.textContent = days;
+      if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+      if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+      if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateStoryCounter();
+    setInterval(updateStoryCounter, 1000);
+
+    // =========================================================================
+    // 4. التحكم في تشغيل الأغنية المحلية (song.mp3) مع معالجة عدم وجودها بالمعاينة
+    // =========================================================================
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggleBtn = document.getElementById('music-toggle-btn');
+    const musicLabel = document.getElementById('music-label');
+    let isMusicPlaying = false;
+
+    function updateMusicButtonUI(playing) {
+      isMusicPlaying = playing;
+      if (musicLabel) {
+        musicLabel.textContent = playing ? 'إيقاف الأغنية ⏸️' : 'تشغيل الأغنية 🎵';
+      }
+    }
+
+    function playBackgroundSong(isAutoAttempt = false) {
+      if (!bgMusic) return;
+
+      try {
+        const playPromise = bgMusic.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              updateMusicButtonUI(true);
+            })
+            .catch(() => {
+              updateMusicButtonUI(false);
+              // إظهار رسالة توضيحية لطيفة إذا لم يكن ملف song.mp3 موجوداً بعد (مثلاً أثناء المعاينة هنا)
+              showFriendlyToast(
+                'ملف song.mp3 مش موجود في المعاينة هنا — أول ما تحط ملف index.html جنب song.mp3 في الفولدر بتاعك، الأغنية هتشتغل أوتوماتيك ❤️'
+              );
+            });
+        }
+      } catch (error) {
+        updateMusicButtonUI(false);
+        if (!isAutoAttempt) {
+          showFriendlyToast(
+            'ملف song.mp3 مش موجود في المعاينة هنا — أول ما تحط ملف index.html جنب song.mp3 في الفولدر بتاعك، الأغنية هتشتغل أوتوماتيك ❤️'
+          );
+        }
+      }
+    }
+
+    function pauseBackgroundSong() {
+      if (!bgMusic) return;
+      bgMusic.pause();
+      updateMusicButtonUI(false);
+    }
+
+    musicToggleBtn.addEventListener('click', () => {
+      if (isMusicPlaying) {
+        pauseBackgroundSong();
+      } else {
+        playBackgroundSong(false);
+      }
+    });
+
+    // =========================================================================
+    // 5. منطق بوابة الدخول بالباسورد السري (6122025)
+    // =========================================================================
+    const loginGate = document.getElementById('login-gate');
+    const loginCard = document.getElementById('login-card');
+    const loginForm = document.getElementById('login-form');
+    const passwordInput = document.getElementById('password-input');
+    const errorMessage = document.getElementById('error-message');
+    const celebrationContent = document.getElementById('celebration-content');
+    const floatingControlsBar = document.getElementById('floating-controls-bar');
+    const togglePasswordBtn = document.getElementById('toggle-password-btn');
+    const eyeOpenIcon = document.getElementById('eye-open-icon');
+    const eyeClosedIcon = document.getElementById('eye-closed-icon');
+
+    togglePasswordBtn.addEventListener('click', () => {
+      const isPassword = passwordInput.type === 'password';
+      passwordInput.type = isPassword ? 'text' : 'password';
+      eyeOpenIcon.classList.toggle('hidden', isPassword);
+      eyeClosedIcon.classList.toggle('hidden', !isPassword);
+      passwordInput.focus();
+    });
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const entered = passwordInput.value.trim();
+
+      if (entered === SECRET_PASSWORD) {
+        // الباسورد صحيح -> فتح الصفحة الرئيسية + احتفالية قلوب + تشغيل الأغنية
+        errorMessage.classList.add('hidden');
+        launchCelebrationBurst();
+        playBackgroundSong(true);
+
+        loginGate.style.opacity = '0';
+        loginGate.style.transform = 'scale(1.06)';
+        loginGate.style.pointerEvents = 'none';
+
+        setTimeout(() => {
+          loginGate.classList.add('hidden');
+          celebrationContent.classList.remove('hidden');
+          floatingControlsBar.classList.remove('hidden');
+          requestAnimationFrame(() => {
+            celebrationContent.classList.remove('opacity-0');
+          });
+        }, 650);
+      } else {
+        // الباسورد غلط -> اهتزاز الكارت وعرض الرسالة الرومانسية
+        errorMessage.classList.remove('hidden');
+        loginCard.classList.remove('shake-card');
+        void loginCard.offsetWidth;
+        loginCard.classList.add('shake-card');
+        passwordInput.select();
+      }
+    });
+
+    // =========================================================================
+    // 6. نظام عرض الصور البديلة في حال عدم وجودها بالمعاينة + معاينة الصور المحلية
+    // =========================================================================
+    const fallbackDesigns = {
+      1: {
+        bg: 'from-[#ff758f] via-[#ff4d79] to-[#a4133c]',
+        title: 'photo1.jpg',
+        sub: 'هتظهر صورتها هنا أوتوماتيك ❤️',
+        svg: `<svg class="w-20 h-20 text-white/95 drop-shadow" viewBox="0 0 64 64" fill="currentColor"><path d="M32 56C32 56 8 40.5 8 23.5C8 15.5 14.3 9 22 9C26.5 9 30.5 11.2 32 14.6C33.5 11.2 37.5 9 42 9C49.7 9 56 15.5 56 23.5C56 40.5 32 56 32 56Z"/></svg>`
+      },
+      2: {
+        bg: 'from-[#ff8fa3] via-[#e01e5a] to-[#59112e]',
+        title: 'photo2.jpg',
+        sub: 'أجمل ذكرى ليكم سوا ✨',
+        svg: `<svg class="w-20 h-20 text-warmGold drop-shadow" viewBox="0 0 64 64" fill="currentColor"><path d="M24 46C24 46 6 34 6 21C6 15 10.8 10 16.8 10C20.2 10 23.2 11.7 24 14.3C24.8 11.7 27.8 10 31.2 10C37.2 10 42 15 42 21C42 34 24 46 24 46Z"/><path d="M44 54C44 54 30 45 30 34.5C30 29.8 33.8 26 38.5 26C41.2 26 43.5 27.3 44 29.3C44.5 27.3 46.8 26 49.5 26C54.2 26 58 29.8 58 34.5C58 45 44 54 44 54Z" fill="#fff0f3"/></svg>`
+      },
+      3: {
+        bg: 'from-[#c9184a] via-[#800f2f] to-[#2b0918]',
+        title: 'photo3.jpg',
+        sub: 'قمر منور حياتك 🌙',
+        svg: `<svg class="w-20 h-20 text-warmGold drop-shadow" viewBox="0 0 64 64" fill="currentColor"><path d="M42 46C29.8 46 20 36.2 20 24C20 17.6 22.7 11.8 27.1 7.8C16.2 9.9 8 19.5 8 31C8 44.3 18.7 55 32 55C42.2 55 50.9 48.6 54.4 39.6C50.9 43.6 46.7 46 42 46Z"/><circle cx="46" cy="18" r="3" fill="#fff0f3"/><circle cx="52" cy="28" r="2" fill="#ff8fa3"/></svg>`
+      },
+      4: {
+        bg: 'from-[#ff4d79] via-[#b5174c] to-[#4a0e29]',
+        title: 'photo4.jpg',
+        sub: 'ملكة قلبك للأبد 👑',
+        svg: `<svg class="w-20 h-20 text-warmGold drop-shadow" viewBox="0 0 64 64" fill="currentColor"><path d="M10 46L6 20L21 31L32 14L43 31L58 20L54 46H10ZM12 50H52V55H12V50Z"/></svg>`
+      }
+    };
+
+    function handleImageError(imgEl, index) {
+      imgEl.classList.add('hidden');
+      const fallbackEl = document.getElementById(`photo-fallback-${index}`);
+      const design = fallbackDesigns[index];
+      if (!fallbackEl || !design) return;
+
+      fallbackEl.className = `w-full h-full bg-gradient-to-br ${design.bg} flex flex-col items-center justify-center p-4 text-center select-none photo-zoom`;
+      fallbackEl.innerHTML = `
+        <div class="mb-3 animate-heartbeat">${design.svg}</div>
+        <span class="text-white font-extrabold text-base mb-1">${design.title}</span>
+        <span class="text-white/85 text-xs font-semibold">${design.sub}</span>
+      `;
+    }
+
+    function triggerPhotoUpload(index) {
+      const input = document.getElementById(`photo-input-${index}`);
+      if (input) input.click();
+    }
+
+    function previewSelectedPhoto(event, index) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const imgEl = document.getElementById(`photo-img-${index}`);
+        const fallbackEl = document.getElementById(`photo-fallback-${index}`);
+        if (fallbackEl) fallbackEl.classList.add('hidden');
+        if (imgEl) {
+          imgEl.src = e.target.result;
+          imgEl.classList.remove('hidden');
+        }
+        launchCelebrationBurst();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // =========================================================================
+    // 7. التورتة التفاعلية وإطفاء الشمعة
+    // =========================================================================
+    const blowCandleBtn = document.getElementById('blow-candle-btn');
+    const relightCandleBtn = document.getElementById('relight-candle-btn');
+    const candleFlameGroup = document.getElementById('candle-flame-group');
+    const wishRevealedBox = document.getElementById('wish-revealed-box');
+    const smoke1 = document.getElementById('smoke-1');
+    const smoke2 = document.getElementById('smoke-2');
+
+    blowCandleBtn.addEventListener('click', () => {
+      candleFlameGroup.classList.add('extinguished');
+
+      smoke1.classList.remove('active');
+      smoke2.classList.remove('active');
+      void smoke1.offsetWidth;
+      smoke1.classList.add('active');
+      smoke2.classList.add('active');
+
+      launchCelebrationBurst();
+
+      blowCandleBtn.classList.add('hidden');
+      wishRevealedBox.classList.remove('hidden');
+    });
+
+    relightCandleBtn.addEventListener('click', () => {
+      candleFlameGroup.classList.remove('extinguished');
+      wishRevealedBox.classList.add('hidden');
+      blowCandleBtn.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
